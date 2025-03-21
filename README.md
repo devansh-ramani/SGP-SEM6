@@ -1,6 +1,5 @@
 # SGP-SEM6
 
-chat application
 # AI-Powered Student Assistance Chatbot
 
 ## Problem Statement
