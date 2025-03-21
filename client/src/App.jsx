@@ -1,14 +1,16 @@
-import React from 'react';
-import { Button } from "@/components/ui/button";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Auth from "./pages/auth";
-import Chat from "./pages/chat";
-import Profile from "./pages/profile";
-// import { useAppStore } from "@/store";
-import { useAppStore } from "../store";
-import apiClient from "@/lib/api-client.js";
 import { useEffect, useState } from "react";
-import { GET_USERINFO_ROUTE } from "@/utils/constants";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Profile from "@/pages/profile";
+import Chat from "@/pages/chat";
+import Auth from "@/pages/auth";
+import apiClient from "@/lib/api-client";
+import { GET_USERINFO_ROUTE } from "@/lib/constants";
+import { useAppStore } from "@/store";
 
 const PrivateRoute = ({ children }) => {
   const { userInfo } = useAppStore();
@@ -22,7 +24,7 @@ const AuthRoute = ({ children }) => {
   return isAuthenticated ? <Navigate to="/chat" /> : children;
 };
 
-const App = () => {
+function App() {
   const { userInfo, setUserInfo } = useAppStore();
   const [loading, setLoading] = useState(true);
 
@@ -56,9 +58,9 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-      <Route
+        <Route
           path="/auth"
           element={
             <AuthRoute>
@@ -84,8 +86,8 @@ const App = () => {
         />
         <Route path="*" element={<Navigate to="/auth" />} />
       </Routes>
-    </BrowserRouter>
-  )
+    </Router>
+  );
 }
 
 export default App;

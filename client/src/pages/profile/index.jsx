@@ -1,6 +1,4 @@
-//ch3cek
-// import { useAppStore } from "@/store";
-import { useAppStore } from "../../../store";
+import { useAppStore } from "@/store";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,18 +8,12 @@ import {
   HOST,
   REMOVE_PROFILE_IMAGE_ROUTE,
   UPDATE_PROFLE_ROUTE,
-} from "@/utils/constants";
-// import {
-//   ADD_PROFILE_IMAGE_ROUTE,
-//   HOST,
-//   REMOVE_PROFILE_IMAGE_ROUTE,
-//   UPDATE_PROFLE_ROUTE,
-// } from "@/lib/constants";
+} from "@/lib/constants";
 import { useState, useRef, useEffect } from "react";
-// import { FaPlus, FaTrash } from "react-icons/fa";
+import { FaPlus, FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-// import { IoArrowBack } from "react-icons/io5";
+import { IoArrowBack } from "react-icons/io5";
 import { colors } from "@/lib/utils";
 
 const Profile = () => {

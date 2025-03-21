@@ -3,15 +3,12 @@ import Victory from "../../assets/victory.svg";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { apiClient } from "@/lib/api-client";
-// import { LOGIN_ROUTE, SIGNUP_ROUTE } from "@/lib/constants"; niche
-import { LOGIN_ROUTE, SIGNUP_ROUTE } from "@/utils/constants";
-import { useState } from "react"
+import apiClient from "@/lib/api-client";
+import { LOGIN_ROUTE, SIGNUP_ROUTE } from "@/lib/constants";
+import { useState } from "react";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
-// import { useAppStore } from "@/store";
-import { useAppStore } from "../../../store";
-import React from "react";
+import { useAppStore } from "@/store";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -19,19 +16,17 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const validateLogin = () => {
     if (!email.length) {
       toast.error("Email is required.");
       return false;
-    } 
+    }
     if (!password.length) {
       toast.error("Password is required.");
       return false;
     }
     return true;
   };
-
   const validateSignup = () => {
     if (!email.length) {
       toast.error("Email is required.");
@@ -47,7 +42,6 @@ const Auth = () => {
     }
     return true;
   };
-
   const handleLogin = async () => {
     try {
       if (validateLogin()) {
@@ -69,15 +63,6 @@ const Auth = () => {
     }
   };
 
-  // const handleSignup = async () => {
-  //   try {
-  //     if (validateSignup()) {
-  //         const response = await apiClient.post(SIGNUP_ROUTE,{email,password,});
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   const handleSignup = async () => {
     try {
       if (validateSignup()) {
@@ -98,7 +83,6 @@ const Auth = () => {
       console.log(error);
     }
   };
-
 
   return (
     <div className="h-[100vh] w-[100vw] flex items-center justify-center">
@@ -180,9 +164,12 @@ const Auth = () => {
         <div className="hidden xl:flex justify-center items-center ">
           <img src={Background} className="h-[700px] " />
         </div>
+
+        {/* Login Signup COmponent */}
+        {/* Branding */}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Auth;
